@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  liferay:
+    image: liferay
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9990:9990

@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  db:
+    image: postgres:9.6.4
+    environment:
+      POSTGRES_USER: liferay
+      POSTGRES_PASSWORD : liferay01
+      POSTGRES_DB: lportal
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  liferay:
+    image: liferay
+    build: 
+      context: . #current dir as build context
+      args: 
+        USERNAME: wildfly
+        PASSWORD: wildfly01
+    ports:
+      - 9990:9990
