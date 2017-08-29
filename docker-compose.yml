@@ -7,16 +7,27 @@ services:
       POSTGRES_USER: liferay
       POSTGRES_PASSWORD : liferay01
       POSTGRES_DB: lportal
+    ports:
+      - 5433:5432
   adminer:
     image: adminer
     ports:
-      - 8080:8080
+      - 8000:8080
+    depends_on: 
+      - "db"
   liferay:
     image: liferay
+    depends_on: 
+      - "adminer"
     build: 
       context: . #current dir as build context
       args: 
         USERNAME: wildfly
         PASSWORD: wildfly01
+    depends_on: 
+      - "adminer"    
     ports:
       - 9990:9990
+      - 8080:8080
+      - 9200:9200
+      - 8443:8443

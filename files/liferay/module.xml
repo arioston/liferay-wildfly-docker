@@ -4,8 +4,7 @@
     <resources>
         <resource-root path="com.liferay.registry.api.jar" />
         <resource-root path="postgresql.jar" />
-        <resource-root path="mariadb-java-client.jar" />
-        <resource-root path="mysql-connector-java.jar" />
+        <resource-root path="hsqldb.jar" />
         <resource-root path="portal-kernel.jar" />
         <resource-root path="portlet.jar" />
     </resources>
